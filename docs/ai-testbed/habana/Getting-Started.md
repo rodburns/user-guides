@@ -1,5 +1,10 @@
 # Getting Started
 
+## On-Boarding
+
+See [Get Started](https://www.alcf.anl.gov/support-center/get-started)
+to request an acccount and additional information.
+
 ## Setup
 
 ### System View
