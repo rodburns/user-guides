@@ -195,6 +195,15 @@ nav:
       - Performance Tools: ai-testbed/cerebras/performance-tools.md
       - Tunneling and Forwarding Ports: ai-testbed/cerebras/tunneling-and-forwarding-ports.md
       - Miscellaneous: ai-testbed/cerebras/miscellaneous.md
+    - Habana:
+      - System Overview: ai-testbed/habana/System-Overview.md
+      - Getting Started: ai-testbed/habana/Getting-Started.md
+      - Virtual Environment: ai-testbed/habana/Virtual-Environment.md
+      - Steps to Run a Model/Program: ai-testbed/habana/Steps-to-Run-a-Model-or-Program.md
+      - Example Programs: ai-testbed/habana/Example-Programs.md
+      - Miscellaneous: ai-testbed/habana/Miscellaneous.md
+      - Tunneling and Forwarding Ports: ai-testbed/habana/Tunneling-and-Forwarding-Ports.md
+      - Documentation: ai-testbed/habana/Documentation.md
     - SambaNova:
       - System Overview: ai-testbed/sambanova/system-overview.md
       - Getting Started: ai-testbed/sambanova/getting-started.md
