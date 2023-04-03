@@ -159,7 +159,9 @@ export MODEL_DIR=model_dir_gptj
 if [ -d "$MODEL_DIR" ]; then rm -Rf $MODEL_DIR; fi
 python run.py --appliance --execution_strategy weight_streaming --job_labels name=gptj_pt --params configs/params_gptj_6B.yaml --num_csx=2 --mode train --model_dir $MODEL_DIR --credentials_path /opt/cerebras/certs/tls.crt --mount_dirs /home/ /srv/software --python_paths /home/$(whoami)/R_1.7.1/modelzoo/ --mgmt_address cluster-server.cerebras1.lab.alcf.anl.gov --compile_dir myuser_test |& tee mytest.log
 ```
+
 The last parts of the output should resemble the following:
+
 ```console
 2023-03-16 16:05:51,582 INFO:   About to send initial weights
 2023-03-16 16:08:00,833 INFO:   Finished sending initial weights
