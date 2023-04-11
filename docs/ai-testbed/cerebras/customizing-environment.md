@@ -34,6 +34,22 @@ pip install tensorflow_datasets
 pip install spacy
 pip3 install -q --disable-pip-version-check /opt/cerebras/wheels/cerebras_appliance-1.7.1_202301251118_3_7170ade7-py3-none-any.whl
 pip3 install -q --disable-pip-version-check /opt/cerebras/wheels/cerebras_tensorflow-1.7.1_202301251118_3_7170ade7-py3-none-any.whl
+
+
+
+
+rm -r ~/.local
+rm -r ~/venvs/cerebras/venv_tf
+/srv/software/cerebras/python3.7/bin/python3.7 -m venv ~/venvs/cerebras/venv_tf
+source ~/venvs/cerebras/venv_tf/bin/activate
+python -m pip -q --disable-pip-version-check install pip
+pip install db-sqlite3
+pip install tensorflow_datasets
+pip install spacy
+cat ~/cer_venvTF.sh
+pip3 install -q --disable-pip-version-check /opt/cerebras/wheels/cerebras_appliance-1.7.1_202301251118_3_7170ade7-py3-none-any.whl
+pip3 install -q --disable-pip-version-check /opt/cerebras/wheels/cerebras_tensorflow-1.7.1_202301251118_3_7170ade7-py3-none-any.whl
+
 ```
 
 #### Activation and deactivation
