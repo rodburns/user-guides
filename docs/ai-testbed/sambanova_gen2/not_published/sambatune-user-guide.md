@@ -32,46 +32,101 @@ Password
 
 ## About SambaTune
 
-SambaTune is a tool for profiling, debugging, and tuning the performance of applications
-running on SN hardware.
+SambaTune is a tool for profiling and performance tuning of applications that are running on SambaNova DataScale hardware.
 
 The tool automates the collection of hardware performance counters, metrics aggregation,
 report generation, and visualization. It also automates benchmarking of the application
 to compute average throughput over a sufficient number of runs. The tool is designed to
 aid the user with performance bottleneck analysis and tuning.
 
-SambaTune is currently used by SN engineers involved in performance tuning efforts.
-SambaTune is also planned for release to external customers to aid with performance
-bottleneck analysis and resolution.
-
 ## Run SambaTune
 
 ```bash
 ssh ALCFUserID@sambanova.alcf.anl.gov
 # Enter MobilePass+ pass code
-ssh sm-01
+ssh sn30-r1-h1
 ```
 
 ```bash
 #TODOBRW
 ssh wilsonb@sambanova.alcf.anl.gov
 # Enter MobilePass+ pass code
-ssh sm-01
+ssh sn30-r1-h1
 ```
 
-First, enter the virtual environment on **sm-01** or **sm-02**:
+## TODO
+
+Install the SambaTune package on the host that is connected to the SambaNova hardware.
 
 ```bash
-source /opt/sambaflow/venv/bin/activate
+sudo apt install -y sambanova-sambatune
+sudo apt install -y sambaflow-apps-micros
 ```
 
-Update path:
+## SambaTune Client Installation
+
+TODO: Waiting for Rick to make a .whl file available.
+
+## Establish Files
+
+A sample application, linear_net.py is included with your installation at /opt/sambaflow/apps/micros/linear_net.py.
+
+### Set Up
+
+Create the following directory and change to it if you have not already done so.
+
+```console
+mkdir ~/app-test
+cd ~/app-test
+```
+
+### Copy linear_net.py
+
+A sample application, linear_net.py, is included with your installation at /opt/sambaflow/apps/micros/linear_net.py.
+
+Copy the file to the current directory:
 
 ```bash
-export PATH=/opt/sambaflow/bin:$PATH
+cp /opt/sambaflow/apps/micros/linear_net.py .
 ```
+
+### Create linear_net.yaml
+
+Create the file **linear_net.yaml** in the current directory using your favorite editor.
+Copy the following **yaml**.
+
+```yaml
+app: linear.py
+model-args: -b 128 -mb 64 --in-features 512 --out-features 128
+compile-args: compile --plot
+run-args: -n 10000
+```
+
+## Command Overview
+
+By default, it will run with the benchmarking mode enabled. Use the --modes flag to run
+modes individually or in any combination.
+Benchmark-Only:
+
+```bash
+sambatune linear_net.yaml
+```
+
+Run the application in instrument-only mode.
+
+> **Note**: The space after -- is required.
+
+$ sambatune --modes instrument -- /opt/sambaflow/sambatune/configs/linear_net.yaml
+
+Run in all modes.
+
+> **Note**: The space after -- is required.
+
+$ sambatune --modes benchmark instrument run -- /opt/sambaflow/sambatune/configs/linear_net.yaml
 
 ## Usage
+
+> TODO Update the help
 
 ```console
 usage: sambatune [-h] [--artifact-root ARTIFACT_ROOT] [--disable-override]
@@ -96,29 +151,11 @@ optional arguments:
   --version             version of sambatune and sambaflow.
 ```
 
-## Command Overview
+## Run the sample application
 
-By default, it will run with the benchmarking mode enabled. Use the --modes flag to run
-modes individually or in any combination.
-Benchmark-Only:
+A sample application, **linear_net.py** is included with your installation at /opt/sambaflow/apps/micros/linear_net.py.
 
-```bash
-sambatune example_net.yaml --artifact-root $(pwd)/artifact_root --modes benchmark
-```
 
-Instrument-Only:
-
-```bash
-sambatune example_net.yaml --artifact-root $(pwd)/artifact_root --modes instrument
-```
-
-All modes:
-
-```bash
-sambatune example_net.yaml --artifact-root $(pwd)/artifact_root --modes instrument
-```
-
-## Command Example
 
 ```bash
 # From Bill
