@@ -19,7 +19,12 @@ make the call.
 
 ### Groq CT
 
+4/27/23 Grog is working on their compiler.  I think they said they were getting
+almost 50 steps/sec for 1K by 2K images.  Check with Corey but, I think that is quite good.
+
 ### Habana CT
+
+This is done.
 
 Repo:    https://github.com/argonne-lcf/user-guides.git
 Branch:  feature/Habana002-DNP
@@ -41,6 +46,9 @@ Branch:  Talk to Bill.
 Repo:  https://github.com/argonne-lcf/user-guides.git
 
 When you change back to 3.2, use virtual-environments.md from the commit a4ce3b5598f4d6feee7ca58accde1a6a0ea84244 "virtual-environments.md with 3.2 edits."
+
+Need to finish docs/ai-testbed/graphcore/profiling.md.
+I have not been able to get Graph Analyser to connect.  Alex has been pinged.
 
 ## Groq
 

@@ -26,9 +26,25 @@ It is essential that you also try to reduce the iterations on each run. For inst
 
 3. In the **Graph Analyser** section, select you operating system.
 
-4. Install per selected operating system.
+### Ubuntu OS
 
-### Create SSH Session
+To install .AppImage files on Ubuntu, you can follow these steps:
+
+Download the .AppImage file that you want to install.
+
+Open the terminal by pressing Ctrl + Alt + T.
+
+Navigate to the directory where the .AppImage file is located. You can use the cd command to change the directory. For example, if the file is located in the Downloads folder, you can navigate to that folder by running cd ~/Downloads.
+
+Make the .AppImage file executable by running the following command: **chmod +x popvision-graph-analyser-3.14.0.AppImage**.
+
+Run the .AppImage file by typing **./popvision-graph-analyser-3.14.0.AppImage** in the terminal.
+
+The application should now be launched. If you want to install it system-wide, you can right-click on the .AppImage file, select Properties, then go to the Permissions tab and check the box that says "Allow executing file as program". After that, you can move the .AppImage file to a location such as /opt or /usr/local/bin to make it available system-wide.
+
+PopVision Graph Analyser is running.
+
+## Create SSH Session
 
 Use **ssh** from your development system.
 
@@ -37,37 +53,27 @@ The **ssh** command will use a **jumphost** and **port forwarding**.  The format
 ```bash
 ssh -J ALCFUserID@gc-login-dd.ai.alcf.anl.gov ALCFUserID@gc-poplar-DD -L 8090:127.0.0.1:22
 ssh -J wilsonb@gc-login-01.ai.alcf.anl.gov wilsonb@gc-poplar-02.ai.alcf.anl.gov -L 8090:127.0.0.1:22
+ssh wilsonb@gc-login-01.ai.alcf.anl.gov -L 8090:127.0.0.1:22
 ```
 
 Where:
 
 | Argument            | Help |
 |---------------------|------------------------------|
-| ALCFUserID       | Is your ALCF user identification.   |
-| dd                  | Is the Graphcore login node to use, i.e., 01 or 02|
-| DD                  | Is the Graphcore node to use, i.e., 01, 02, 03, or 04.   |
+| ALCFUserID          | Is your ALCF user identification.   |
+| dd                  | Is the Graphcore login node to use, i.e., 01 or 02 |
+| DD                  | Is the Graphcore node to use, i.e., 02, 03, or 04.   |
 | 8090                | Is the port on your local machine.   |
 | 127.0.0.1:22        | Is the local IP address and port on the remote machine. |
 |  |  |  |
 
+> **Note**: You will need to provide a MobilePASS+ authentication twice.
+
 You will receive a prompt.
 
-## Launch **Graph Analyser**
+## User Interface
 
-Continue on your development machine.
-
-### Operating System
-
-#### Ubuntu
-
-```bash
-cd /path/to/graph/analyser/directory
-./popvision-graph-analyser-3.11.6.AppImage
-```
-
-### User Interface
-
-![Graph Analyser](files/Graph_Ananlyser_main.jpg "Graph Analyser")
+![Graph Analyser](files/Graph_Ananlyser_main.png "Graph Analyser")
 
 ![Graphcore System View](files/image.png "Graphcore System View")
 

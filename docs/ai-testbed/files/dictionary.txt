@@ -1,4 +1,5 @@
 aitestbed
+alcf
 ALCFUserID
 analyser
 ANL
@@ -21,9 +22,11 @@ GEMM
 Graphcore
 graphcore_login
 gres
+Groq
 inet
 inplace
 jsons
+jumphost
 kaggle
 keras
 keygen
