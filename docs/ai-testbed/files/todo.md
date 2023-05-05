@@ -63,3 +63,11 @@ Branch:  feature/Habana002-DNP
 ## SambaNova
 
 Repo:  https://github.com/argonne-lcf/user-guides.git
+
+SambaTune
+
+Repo: https://github.com/argonne-lcf/user-guides.git
+
+File Gen 1: docs/ai-testbed/sambanova_gen1/sambatune-user-guide.md
+
+File Gen 2: docs/ai-testbed/sambanova_gen2/sambatune-user-guide.md
