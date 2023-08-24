@@ -1,20 +1,20 @@
-# OneAPI Compilers and Support
+# oneAPI SYCL Compiler and Support
 
-The Intel OneAPI compiler and Codeplay plugins for Nvidia GPUs are available on Polaris.
+The Intel oneAPI compiler and Codeplay plugins for Nvidia GPUs are available on Polaris and can be used to compile SYCL code.
 The oneAPI compilers are not enabled under the Cray Programming Environment system but can be used separately.
 Two oneAPI variants are provided, the first being a "release" version based on Intel's officially released oneAPI toolkit.
 [Intel Release Notes](https://www.intel.com/content/www/us/en/developer/articles/release-notes/intel-oneapi-toolkit-release-notes.html)
 
 !!! note
 
-    The 2023.1 release of oneAPI Toolkit does not support oneMKL or oneDPL on Nvidia.
+    The 2023.2 release of oneAPI Toolkit does not support oneMKL or oneDPL on Nvidia.
 
 The other variant being a build of main from the open source. This variant will be more up-to-date at the risk of bugs and breakages based on code that has not undergone a full release cycle.
 The documentation is located on the [SYCL](../programming-models/sycl-polaris.md) page.
 
 
 ## Compile and Link
-OneAPI uses the clang (or icx/icpx wrapper) for compiling and linking for the Nvidia A100 SM80 architecture.
+oneAPI uses the clang (or icx/icpx wrapper) for compiling and linking for the Nvidia A100 SM80 architecture.
 
 
 ```
@@ -26,11 +26,11 @@ icpx -std=c++17 -fsycl -fsycl-targets=nvptx64-nvidia-cuda  -Xsycl-target-backend
 
 ```
 harms@polaris-login-04:~/working/polaris/oneapi> icpx --version
-Intel(R) oneAPI DPC++/C++ Compiler 2023.1.0 (2023.1.0.20230320)
+Intel(R) oneAPI DPC++/C++ Compiler 2023.2.1 (2023.2.0.20230721)
 Target: x86_64-unknown-linux-gnu
 Thread model: posix
-InstalledDir: /soft/compilers/oneapi/release/2023.1/compiler/2023.1.0/linux/bin-llvm
-Configuration file: /soft/compilers/oneapi/release/2023.1/compiler/2023.1.0/linux/bin-llvm/../bin/icpx.cfg
+InstalledDir: /soft/compilers/oneapi/release/2023.2/compiler/2023.2.1/linux/bin-llvm
+Configuration file: /soft/compilers/oneapi/release/2023.2/compiler/2023.2.1/linux/bin-llvm/../bin/icpx.cfg
 ```
 
 ## Running
@@ -48,7 +48,7 @@ Expected output of sycl-ls and which platforms are available.
 
 ```
 harms@x3004c0s7b0n0:~> which sycl-ls
-/soft/compilers/oneapi/release/2023.1/compiler/2023.1.0/linux/bin/sycl-ls
+/soft/compilers/oneapi/release/2023.2/compiler/2023.2.1/linux/bin/sycl-ls
 
 harms@x3004c0s7b0n0:~> sycl-ls
 [opencl:acc:0] Intel(R) FPGA Emulation Platform for OpenCL(TM), Intel(R) FPGA Emulation Device 1.2 [2023.15.3.0.20_160000]
